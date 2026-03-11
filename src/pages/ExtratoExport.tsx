@@ -9,8 +9,8 @@ const A4_W = 210;
 const A4_H = 297;
 const PAD_SIDE = 15;
 const PAD_TOP = 12;
-const FOOTER_ZONE = 38;
-const HEADER_ZONE = 28; // mm for repeated header
+const FOOTER_ZONE = 44;
+const HEADER_ZONE = 34; // mm for repeated header (includes spacer)
 const CONTENT_H_FIRST = A4_H - PAD_TOP - FOOTER_ZONE - HEADER_ZONE; // header is on every page
 const CONTENT_H_REST = A4_H - PAD_TOP - FOOTER_ZONE - HEADER_ZONE;
 
@@ -100,7 +100,9 @@ const ExtratoExport = () => {
           <p>{conta.numero_conta}</p>
         </div>
       </div>
-      <div style={{ borderBottom: "2px solid #ccc", paddingBottom: "6px", marginBottom: "16px" }}>
+      {/* Spacer area above the red line for alignment */}
+      <div style={{ height: "14px" }}></div>
+      <div style={{ borderBottom: "2.5px solid #E00", paddingBottom: "6px", marginBottom: "16px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
           <span style={{ fontWeight: 700, fontSize: "13px" }}>
             {fmtPeriodo(dataInicio)} a {fmtPeriodo(dataFim)}
