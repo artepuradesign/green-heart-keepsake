@@ -9,7 +9,7 @@ const A4_W = 210;
 const A4_H = 297;
 const PAD_SIDE = 15;
 const PAD_TOP = 12;
-const FOOTER_ZONE = 46;
+const FOOTER_ZONE = 36;
 const HEADER_ZONE = 32; // mm for repeated header
 const CONTENT_H_FIRST = A4_H - PAD_TOP - FOOTER_ZONE - HEADER_ZONE;
 const CONTENT_H_REST = A4_H - PAD_TOP - FOOTER_ZONE - HEADER_ZONE;
@@ -122,7 +122,7 @@ const ExtratoExport = () => {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
           <div>
             <p style={{ fontSize: "12px", color: "#000", marginBottom: "4px", fontWeight: 700 }}>Saldo final do período</p>
-            <p style={{ fontSize: "22px", fontWeight: 700, color: "#8A05BE", lineHeight: "1.2" }}>
+            <p style={{ fontSize: "22px", fontWeight: 600, fontFamily: "'Graphik', sans-serif", color: "#8A05BE", lineHeight: "1.2" }}>
               R$ {fmt(resumo.saldo_final)}
             </p>
           </div>
