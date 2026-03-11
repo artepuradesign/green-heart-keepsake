@@ -247,9 +247,10 @@ const ExtratoExport = () => {
       const containerPxWidth = container.offsetWidth;
       const mmToPx = containerPxWidth / (A4_W - 2 * PAD_SIDE);
 
-      // First page has more room (header is part of page template, but summary block is bigger)
-      const maxFirst = CONTENT_H_FIRST * mmToPx;
-      const maxRest = CONTENT_H_REST * mmToPx;
+      // Safety margin to prevent content from touching footer (10mm buffer)
+      const SAFETY_MM = 10;
+      const maxFirst = (CONTENT_H_FIRST - SAFETY_MM) * mmToPx;
+      const maxRest = (CONTENT_H_REST - SAFETY_MM) * mmToPx;
 
       const result: number[][] = [];
       let currentPage: number[] = [];
@@ -271,7 +272,7 @@ const ExtratoExport = () => {
       if (currentPage.length > 0) result.push(currentPage);
 
       setPages(result);
-    }, 200);
+    }, 300);
 
     return () => clearTimeout(timer);
   }, [blocks]);
